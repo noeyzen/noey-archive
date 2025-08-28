@@ -1,0 +1,70 @@
+@charset "utf-8";
+
+/* reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.blind,
+legend {
+    position: absolute;
+    clip: rect(0 0 0 0);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+}
+
+select,
+button,
+input {
+    border: none;
+    background-color: transparent;
+    color: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+img {
+    max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: inherit;
+    font-weight: inherit;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+td,
+th {
+    padding: 10px;
+}
+
+table {
+    border-spacing: 0;
+    border-collapse: collapse;
+    table-layout: fixed;
+    overflow-wrap: break-word;
+        }
+
+fieldset {
+    border: none;
+}

@@ -1,0 +1,131 @@
+@charset "utf-8";
+
+body{
+    box-sizing: border-box;
+    overflow-x: hidden;
+    color: #1d1d1d;
+}
+
+/* 고정 헤더영역 */
+.headernav{
+    width: 100%;
+    height: 80px;
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000; 
+    background-color: white;
+}
+/* .cal-sans-regular {
+    font-family: "Cal Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+} */
+
+.headernav .navul{
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #1d1d1d;
+    font-family: "Cal Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.headernav .navul li{
+    flex: 1;
+    text-align: center;
+    color: #1d1d1d;
+}
+
+.headernav .navul li + li{
+    border-left: 1px solid #1d1d1d;
+}
+
+.headernav .navul a{
+    display: block;  
+    width: 100%;     
+    height: 100%;   
+    line-height: 80px;
+    font-weight: 200;
+    font-size: 24px;
+    transition: 0.6s;
+}
+
+.headernav .navul a:hover{
+    background-color: #1d1d1d;
+    color: rgb(243, 243, 243);
+}
+
+/* 모든 섹션 공통값 */
+.sec{
+    margin-top: 80px;
+    width: 100%;
+    height: calc( 100vh - 80px );
+}
+
+.main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    font-family: "Cal Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.main .logo{
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.main .logo span{
+    font-weight: 600;
+    font-size: 100px;
+    line-height: 87px;
+    display: flex;
+    align-items: flex-end;
+    letter-spacing: -20px;
+}
+
+.main .logo span::after{
+    content: "";
+    display: block;
+    width: 200px;
+    height: 10px;
+    background-color: #1d1d1d;
+}
+
+.main .logo img{
+    width: 800px;
+}
+
+.main p{
+    font-weight: 200;
+    font-size: 40px;
+    color: #626262;
+}
+
+.main p strong{
+    font-weight: 800;
+    /* letter-spacing: 10px; */
+    font-style: italic;
+    color: #da00da;
+}
+
+.main p:last-child{
+    margin-top: 10px;
+    font-size: 32px;
+}
+
+.main .bg{
+    font-size: 300px;
+    font-weight: 800;
+    position: absolute;
+    top: 10px;
+    left: 20%;
+    color: rgba(102, 102, 102, 0.244);
+}
