@@ -15,11 +15,6 @@ body{
     z-index: 1000; 
     background-color: white;
 }
-/* .cal-sans-regular {
-    font-family: "Cal Sans", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-} */
 
 .headernav .navul{
     height: 100%;
@@ -27,7 +22,7 @@ body{
     justify-content: space-between;
     align-items: center;
     border: 1px solid #1d1d1d;
-    font-family: "Cal Sans", sans-serif;
+    font-family: "Raleway", sans-serif;
     font-weight: 400;
     font-style: normal;
 }
@@ -64,6 +59,8 @@ body{
     height: calc( 100vh - 80px );
 }
 
+/* 섹션1 홈 */
+
 .main{
     display: flex;
     flex-direction: column;
@@ -71,7 +68,7 @@ body{
     align-items: center;
     text-align: center;
     position: relative;
-    font-family: "Cal Sans", sans-serif;
+    font-family: "Raleway", sans-serif;
     font-weight: 400;
     font-style: normal;
 }
@@ -104,6 +101,7 @@ body{
 }
 
 .main p{
+    
     font-weight: 200;
     font-size: 40px;
     color: #626262;
@@ -113,7 +111,7 @@ body{
     font-weight: 800;
     /* letter-spacing: 10px; */
     font-style: italic;
-    color: #da00da;
+    /* color: #da00da; */
 }
 
 .main p:last-child{
@@ -129,3 +127,144 @@ body{
     left: 20%;
     color: rgba(102, 102, 102, 0.244);
 }
+
+/* 섹션2 프로젝트 */
+
+.project {
+
+    
+}
+
+.project .projectul{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #1d1d1d;
+}
+.project li{
+    width: 100%;
+    position: relative;
+    flex: 1;
+    border-bottom: 1px solid #1d1d1d;    
+}
+.project li:last-child{
+    border-bottom: none;
+}
+
+.project li a{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;   
+    height: 100%;
+    padding: 0 60px;
+    /* transition: 0.4s; */
+}
+
+.project li a:hover{
+    font-style: italic;
+}
+
+.project li span{
+    font-family: "Raleway", sans-serif;
+    font-size: 20px;
+}
+
+.project li .num{
+    
+}
+
+.project li strong{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    font-family: "Raleway", sans-serif;
+    font-size: 60PX;
+}
+
+/* 섹션3 어바웃 */
+
+.about {
+    padding: 0 60px;
+}
+.about .tit{
+    font-size: 80px;
+    font-family: "Raleway", sans-serif;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    line-height: 100px;
+}
+
+.about .tit::after{
+    content: "";
+    width: 100%;
+    height: 0.5px;
+    margin-top: 20px;
+    background-color: #1d1d1d;
+}
+.about .container{
+    width: 100%;
+    height: calc( 100% - 120px);
+    /* outline: 1px solid blue; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+}
+.about .container .profile{
+    display: flex;
+    flex: 1;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 40px;
+}
+
+.about .profile .left {
+    text-align: center;
+    font-size: 24px;
+    font-family: "Raleway", sans-serif;
+}
+
+.about .profile .right{
+    font-size: 30px;
+    font-family: "Raleway", sans-serif;
+}
+.about .container .profile .imgbox{
+    width: 400px;
+    height: 500px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+.about .container .profile .left img{
+    object-fit: cover;
+}
+
+.about .container .career{
+    flex: 1;
+    /* outline: 1px solid red; */
+    font-family: "Raleway", sans-serif;
+}
+
+.about .container .career strong{
+    display: inline-block;
+    font-size: 40px;
+    outline: 2px solid #1d1d1d;
+    padding: 10px 20px;
+    border-radius: 50px;
+    margin-bottom: 20px;
+}
+
+.about .career .box p{
+    font-size: 24px;
+}
+
+.about .career .box2{
+    width: 100%;
+    margin-top: 30px;
+    /* outline: 1px solid blue; */
+}
+
+
