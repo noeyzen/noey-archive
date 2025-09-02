@@ -1,270 +1,267 @@
 @charset "utf-8";
 
-body{
-    box-sizing: border-box;
-    overflow-x: hidden;
-    color: #1d1d1d;
+@font-face {
+    font-family: 'PartialSans';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-1@1.1/PartialSansKR-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-display: swap;
 }
 
-/* 고정 헤더영역 */
-.headernav{
-    width: 100%;
-    height: 80px;
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 1000; 
-    background-color: white;
+@font-face {
+    font-family: 'Suit';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Thin.woff2') format('woff2');
+    font-weight: 100;
+    font-display: swap;
 }
 
-.headernav .navul{
-    height: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border: 1px solid #1d1d1d;
-    font-family: "Raleway", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-}
-
-.headernav .navul li{
-    flex: 1;
-    text-align: center;
-    color: #1d1d1d;
-}
-
-.headernav .navul li + li{
-    border-left: 1px solid #1d1d1d;
-}
-
-.headernav .navul a{
-    display: block;  
-    width: 100%;     
-    height: 100%;   
-    line-height: 80px;
+@font-face {
+    font-family: 'Suit';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-ExtraLight.woff2') format('woff2');
     font-weight: 200;
-    font-size: 24px;
-    transition: 0.6s;
+    font-display: swap;
 }
 
-.headernav .navul a:hover{
-    background-color: #1d1d1d;
-    color: rgb(243, 243, 243);
+@font-face {
+    font-family: 'Suit';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Light.woff2') format('woff2');
+    font-weight: 300;
+    font-display: swap;
 }
 
-/* 모든 섹션 공통값 */
-.sec{
-    margin-top: 80px;
+@font-face {
+    font-family: 'Suit';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Suit';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Suit';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-SemiBold.woff2') format('woff2');
+    font-weight: 600;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Suit';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Suit';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-ExtraBold.woff2') format('woff2');
+    font-weight: 800;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Suit';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Heavy.woff2') format('woff2');
+    font-weight: 900;
+    font-display: swap;
+}
+
+body{
+    background-color:#613548;
+    color:#a95c7d;
+    font-family:'Suit';
+}
+
+/* 풀스크린 스플래시 오버레이 (#a95c7d → 자동 페이드아웃) */
+body::before{
+    content: "";
+    position: fixed;
+    inset: 0;                 /* top/right/bottom/left:0 */
+    background: #a95c7d;
+    z-index: 9999;            /* 모든 요소 위 */
+    opacity: 1;
+    /* 딜레이 0.15s 뒤에 0.9s 동안 페이드아웃, 끝 상태 유지 */
+    animation: splashFade 0.9s ease-out 0.5s forwards;
+    /* 클릭 막고 싶지 않으면 아래 줄 켜기 */
+    /* pointer-events: none; */
+}
+
+@keyframes splashFade{
+  0%   { opacity: 1; visibility: visible; }
+  99%  { opacity: 0; }
+  100% { opacity: 0; visibility: hidden; } /* 사라진 뒤 포커스 방지 */
+}
+
+/* 헤더 */
+header{
+    width:100%;
+    height:120px;
+    padding:0 80px;
+    position:fixed;
+    top:20px;
+    left:0;
+    z-index:1000;
+}
+
+/* 네비게이션 */
+.navul{
+    height:120px;
+    display:flex;
+    justify-content:flex-end;
+    align-items:center;
+    gap:100px;
+  /* li margin은 쓰지 않음: gap이 이미 간격 담당 */
+}
+
+/* 메뉴 항목 */
+.navul li a{
+    font-size:24px;
+    font-weight:500;
+    font-family:'PartialSans';
+    letter-spacing:4px;
+    transition:color .3s ease;
+}
+.navul li a:hover{ color:#a95c7d; }
+
+/* 로고 영역: a를 블록으로(호버 범위 안정화) */
+.navul .logo a{ display:block; line-height:0; }
+
+/* 로고 컨테이너 = 링 지름과 동일한 정사각형 */
+.navul .logo .menubox{
+    position:relative;
+    width:120px;     /* 링 지름 */
+    height:120px;
+    display:grid;
+    place-items:center;
+}
+
+/* 로고(가운데)만 80px */
+.navul .logo .menubox > img:not(.menuling){
+    width:80px;
+    height:auto;
+    display:block;
+    z-index:1;
+}
+
+/* 링 */
+.navul .menuling{
+    position:absolute;
+    inset:0;          /* menubox 꽉 채움 */
+    width:100%;
+    height:100%;
+    display:block;
+    opacity:0;        /* 기본 숨김 */
+    transition:opacity .25s ease;
+    pointer-events:none;
+    transform-origin:50% 50%;
+    object-fit:contain; /* 뷰박스가 커도 원 유지 */
+    z-index:0;        /* 로고 뒤 */
+}
+
+/* ✅ 호버: li 전체를 트리거로 (호버 안 잡히는 문제 방지) */
+.navul .logo:hover .menuling{
+    opacity:1;
+    animation:spin 6s linear infinite;
+}
+
+/* 회전은 rotate만 (translate 넣지 말기) */
+@keyframes spin{
+    to{ transform:rotate(360deg); }
+}
+
+/* --- 디버깅용(필요 시 잠깐 켜서 확인) ---
+.navul .logo .menubox{ outline:1px dashed hotpink; }
+*/
+
+/* 메인 */
+.sec {
     width: 100%;
-    height: calc( 100vh - 80px );
+    height: 100vh;
+    padding: 0 60px;
 }
-
-/* 섹션1 홈 */
 
 .main{
+    width: 100%;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    text-align: center;
-    position: relative;
-    font-family: "Raleway", sans-serif;
-    font-weight: 400;
-    font-style: normal;
 }
 
-.main .logo{
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 20px;
-}
-
-.main .logo span{
-    font-weight: 600;
-    font-size: 100px;
-    line-height: 87px;
-    display: flex;
-    align-items: flex-end;
-    letter-spacing: -20px;
-}
-
-.main .logo span::after{
-    content: "";
-    display: block;
-    width: 200px;
-    height: 10px;
-    background-color: #1d1d1d;
-}
-
-.main .logo img{
-    width: 800px;
-}
-
-.main p{
-    
-    font-weight: 200;
-    font-size: 40px;
-    color: #626262;
-}
-
-.main p strong{
-    font-weight: 800;
-    /* letter-spacing: 10px; */
-    font-style: italic;
-    /* color: #da00da; */
-}
-
-.main p:last-child{
-    margin-top: 10px;
-    font-size: 32px;
-}
-
-.main .bg{
-    font-size: 300px;
-    font-weight: 800;
-    position: absolute;
-    top: 10px;
-    left: 20%;
-    color: rgba(102, 102, 102, 0.244);
-}
-
-/* 섹션2 프로젝트 */
-
-.project {
-
-    
-}
-
-.project .projectul{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    border: 1px solid #1d1d1d;
-}
-.project li{
-    width: 100%;
-    position: relative;
-    flex: 1;
-    border-bottom: 1px solid #1d1d1d;    
-}
-.project li:last-child{
-    border-bottom: none;
-}
-
-.project li a{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;   
-    height: 100%;
-    padding: 0 60px;
-    /* transition: 0.4s; */
-}
-
-.project li a:hover{
-    font-style: italic;
-}
-
-.project li span{
-    font-family: "Raleway", sans-serif;
-    font-size: 20px;
-}
-
-.project li .num{
-    
-}
-
-.project li strong{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    translate: -50% -50%;
-    font-family: "Raleway", sans-serif;
-    font-size: 60PX;
-}
-
-/* 섹션3 어바웃 */
-
-.about {
-    padding: 0 60px;
-}
-.about .tit{
-    font-size: 80px;
-    font-family: "Raleway", sans-serif;
-    font-weight: 600;
-    display: flex;
-    flex-direction: column;
-    line-height: 100px;
-}
-
-.about .tit::after{
-    content: "";
-    width: 100%;
-    height: 0.5px;
-    margin-top: 20px;
-    background-color: #1d1d1d;
-}
-.about .container{
+.main .container{
     width: 100%;
     height: calc( 100% - 120px);
-    /* outline: 1px solid blue; */
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 80px;
 }
-.about .container .profile{
+
+.main .container img{
+    width: 1000px;
+}
+
+.main .txtbox{
+    width: 100%;
+    padding: 10px 80px;
     display: flex;
-    flex: 1;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 24px;
+    font-weight: 300;
+    margin: 20px 0;
+}
+
+.main .txtbox strong{
+    font-weight: 700;
+}
+
+.main .line{
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: #a95c7d;
+}
+
+/* 메뉴 */
+
+.menu {
+    display: flex;
     align-items: flex-end;
     justify-content: center;
-    gap: 40px;
 }
 
-.about .profile .left {
-    text-align: center;
-    font-size: 24px;
-    font-family: "Raleway", sans-serif;
-}
-
-.about .profile .right{
-    font-size: 30px;
-    font-family: "Raleway", sans-serif;
-}
-.about .container .profile .imgbox{
-    width: 400px;
-    height: 500px;
+.menu .left-box{
+    width: 40%;
+    height: calc( 100% - 120px);
+    outline: 1px solid blue;
     overflow: hidden;
-    margin-bottom: 10px;
+    display: flex;
+
 }
-.about .container .profile .left img{
+
+.menu .left-box img{
+    width: 60%;
     object-fit: cover;
 }
 
-.about .container .career{
-    flex: 1;
-    /* outline: 1px solid red; */
-    font-family: "Raleway", sans-serif;
+
+.menu .right-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 60%;
+    height: calc( 100% - 120px);
+    padding: 20px 0;
+    outline: 1px solid red;
 }
 
-.about .container .career strong{
-    display: inline-block;
-    font-size: 40px;
-    outline: 2px solid #1d1d1d;
-    padding: 10px 20px;
-    border-radius: 50px;
-    margin-bottom: 20px;
-}
-
-.about .career .box p{
+.menu .right-box .contactul{
     font-size: 24px;
+    
 }
-
-.about .career .box2{
-    width: 100%;
-    margin-top: 30px;
-    /* outline: 1px solid blue; */
-}
-
 
