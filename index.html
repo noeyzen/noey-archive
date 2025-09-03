@@ -40,24 +40,77 @@
         </div>
         <span class="line"></span>
     </section>
-    <section class="sec menu">
-        <div class="left-box">
-            <img src="./img/index.svg">
-            <p>My project</p>
-        </div>
-        <div class="right-box">
-            <ul class="contactul">
-                <li>
-                    <strong>mail</strong>
-                    <br>noey6@kakao.com
-                </li>
-            </ul>
-            <ul class="indexul">
-                <li><a href="#">AD Design</a></li>
-                <li><a href="#">UIUX</a></li>
-                <li><a href="#">Contents</a></li>
-            </ul>
+    <section class="sec menu" aria-hidden="true">
+        <div class="menu-inner">
+            <div class="left-box">
+                <div class="featured-visual">
+                    <img src="./img/index.svg" alt="featured visual">
+                </div>
+
+            </div>
+            <div class="right-box">
+                <div class="right-top">
+                    <ul class="contactul">
+                        <li>
+                            <strong>instagram</strong>
+                            <br>@seo
+                        </li>
+                        <li>
+                            <strong>contact</strong>
+                            <br>66noey@gmail.com
+                        </li>
+                    </ul>
+                </div>
+                <div class="right-links">
+                    <a href="#" class="menu-link">ABout NOey</a>
+                    <a href="#" class="menu-link">Projects</a>
+                    <a href="#" class="menu-link">Work</a>
+                </div>
+            </div>
         </div>
     </section>
+    <script>
+    (function(){
+        var logoImg = document.querySelector('.navul .logo .menubox > img:not(.menuling)');
+        var menuSection = document.querySelector('.sec.menu');
+        if (!logoImg || !menuSection) return;
+
+        function triggerChildrenDrop(){
+            var kids = menuSection.querySelectorAll('.menu-inner, .menu-inner *');
+            kids.forEach(function(el){
+                el.classList.remove('drop6');
+            });
+            // reflow to restart animation
+            void menuSection.offsetWidth;
+            kids.forEach(function(el){
+                el.classList.add('drop6');
+            });
+        }
+
+        function openMenu(){
+            document.body.classList.add('menu-open');
+            menuSection.setAttribute('aria-hidden','false');
+            triggerChildrenDrop();
+        }
+
+        function closeMenu(){
+            document.body.classList.remove('menu-open');
+            menuSection.setAttribute('aria-hidden','true');
+        }
+
+        function toggleMenu(){
+            if (document.body.classList.contains('menu-open')){
+                closeMenu();
+            } else {
+                openMenu();
+            }
+        }
+
+        logoImg.addEventListener('click', function(e){
+            e.preventDefault();
+            toggleMenu();
+        });
+    })();
+    </script>
 </body>
 </html>
