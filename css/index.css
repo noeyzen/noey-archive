@@ -99,12 +99,12 @@ body::before{
 /* 헤더 */
 header{
     width:100%;
-    height:120px;
+    height:140px;
     padding:0 80px;
     position:fixed;
-    top:20px;
+    top:0;
     left:0;
-    z-index:1000;
+    z-index:10000;
 }
 
 /* 네비게이션 */
@@ -133,15 +133,15 @@ header{
 /* 로고 컨테이너 = 링 지름과 동일한 정사각형 */
 .navul .logo .menubox{
     position:relative;
-    width:120px;     /* 링 지름 */
-    height:120px;
+    width:100px;     /* 링 지름 */
+    height:100px;
     display:grid;
     place-items:center;
 }
 
 /* 로고(가운데)만 80px */
 .navul .logo .menubox > img:not(.menuling){
-    width:80px;
+    width:70px;
     height:auto;
     display:block;
     z-index:1;
@@ -243,6 +243,7 @@ header{
     transform: translateY(-20px);
     pointer-events: none; /* 닫힌 상태 클릭 방지 */
     background-color: #d598b3;
+    z-index: 1000;
 }
 
 .menu .menu-inner{ display:flex; gap:40px; width:100%; height:calc(100% - 120px); }
@@ -309,8 +310,306 @@ body.menu-open .sec.menu{
 .drop6{
     animation: drop6 300ms ease both;
 }
-@keyframes drop6{
+@keyframes dropa95c7da95c7d6{
     from{ transform: translateY(0); }
     to{ transform: translateY(6px); }
 }
 
+/* About 섹션 */
+.about {
+    position: fixed;
+    right: -100vw; /* 기본은 화면 오른쪽으로 숨김 */
+    top: 120px; /* header 높이(120px) + 상단 여백(20px) */
+    width: 100vw;
+    height: calc(100vh - 100px); /* header 높이만큼 제외 */
+    background-color: #262626;
+    transition: right .6s cubic-bezier(.2,.7,0,1);
+    pointer-events: none;
+    z-index: 999;
+}
+
+.about.about-open {
+    right: 0;
+    pointer-events: auto;
+}
+
+/* About 섹션이 열렸을 때 헤더 배경색 변경 */
+body.about-open header {
+    background-color: #262626;
+    transition: background-color .6s cubic-bezier(.2,.7,0,1);
+}
+
+/* About 섹션이 열렸을 때 헤더의 HOME 링크 색상 변경 */
+body.about-open header .navul li a {
+    color: #a95c7d;
+}
+
+body.about-open header .navul li a:hover {
+    color: #f6ff58;
+}
+
+/* About 섹션이 열렸을 때 header의 SVG 파일 색상 변경 */
+body.about-open header .navul .logo .menubox > img:not(.menuling) {
+    filter: brightness(0) saturate(100%) invert(47%) sepia(15%) saturate(1237%) hue-rotate(300deg) brightness(95%) contrast(89%);
+}
+
+body.about-open header .navul .logo .menubox .menuling {
+    filter: brightness(0) saturate(100%) invert(47%) sepia(15%) saturate(1237%) hue-rotate(300deg) brightness(95%) contrast(89%);
+}
+
+/* About 섹션이 열린 상태에서 메뉴를 클릭했을 때 SVG 색상 원복 */
+body.about-open.menu-open header .navul .logo .menubox > img:not(.menuling) {
+    filter: none;
+}
+
+body.about-open.menu-open header .navul .logo .menubox .menuling {
+    filter: none;
+}
+
+/* 메뉴가 열렸을 때는 헤더 배경색 변경하지 않음 */
+body.menu-open header {
+    background-color: transparent;
+}
+
+.about-inner {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    padding: 80px 60px;
+    gap: 40px;
+}
+
+.about-left {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.about-title {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.title-main {
+    font-family: 'PartialSans';
+    font-size: 90px;
+    font-weight: 400;
+    color: #f6ff58;
+    line-height: 90px;
+}
+
+.title-sub {
+    display: flex;
+    align-items: flex-end;
+    gap: 22px;
+}
+
+.title-sub span {
+    font-family: 'PartialSans';
+    font-size: 90px;
+    font-weight: 400;
+    color: #f6ff58;
+    line-height: 90px;
+}
+
+.title-line {
+    flex: 1;
+    height: 5px;
+    background-color: #f6ff58;
+}
+
+.profile-container {
+    position: relative;
+    width: 480px;
+    height: 592px;
+    background-color: #a95c7d;
+    border-radius: 30px;
+    overflow: hidden;
+}
+
+.profile-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.name-overlay {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    z-index: 20;
+}
+
+.name-jang {
+    position: absolute !important;
+    bottom: 120px !important;
+    right: 30px !important;
+    font-family: 'PartialSans', Arial, sans-serif !important;
+    font-size: 103px !important;
+    font-weight: 400 !important;
+    color: #f6ff58 !important;
+    -webkit-text-stroke: 3px #000000 !important;
+    line-height: 103px !important;
+    z-index: 20 !important;
+}
+
+.name-seo {
+    position: absolute !important;
+    bottom: 60px !important;
+    right: 30px !important;
+    font-family: 'PartialSans', Arial, sans-serif !important;
+    font-size: 103px !important;
+    font-weight: 400 !important;
+    color: #f6ff58 !important;
+    -webkit-text-stroke: 3px #000000 !important;
+    line-height: 103px !important;
+    z-index: 20 !important;
+}
+
+.name-yeon {
+    position: absolute !important;
+    bottom: 0 !important;
+    right: 30px !important;
+    font-family: 'PartialSans', Arial, sans-serif !important;
+    font-size: 103px !important;
+    font-weight: 400 !important;
+    color: #f6ff58 !important;
+    -webkit-text-stroke: 3px #000000 !important;
+    line-height: 103px !important;
+    z-index: 20 !important;
+}
+
+.about-right {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.top-banner {
+    background-color: #a95c7d;
+    border-radius: 30px;
+    padding: 32px;
+    text-align: center;
+    height: 195px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.banner-text {
+    font-family: 'Suit';
+    font-size: 45px;
+    line-height: normal;
+}
+
+.data-text {
+    color: #ffffff;
+}
+
+.banner-desc {
+    font-family: 'Suit';
+    font-weight: 300;
+    color: #ffffff;
+}
+
+.banner-main {
+    color: #262626;
+    font-size: 60px;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 34px;
+    height: calc(100% - 225px);
+}
+
+.info-block {
+    border-radius: 30px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.info-block h3 {
+    font-family: 'PartialSans';
+    font-size: 32px;
+    font-weight: 400;
+    color: #262626;
+    margin: 0;
+    text-align: left;
+}
+
+.info-content {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.info-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.info-content p {
+    font-family: 'Suit';
+    font-size: 22px;
+    font-weight: 300;
+    color: #262626;
+    margin: 0;
+    line-height: normal;
+}
+
+.info-content p:first-child {
+    font-size: 32px;
+    font-weight: 400;
+}
+
+.education {
+    background-color: #715ca9;
+}
+
+.work {
+    background-color: #5ca0a9;
+}
+
+.skills {
+    background-color: #86a95c;
+}
+
+.hashtags {
+    background-color: #c29f64;
+    justify-content: center;
+    align-items: center;
+}
+
+.hashtag {
+    font-family: 'PartialSans';
+    font-size: 32px;
+    font-weight: 400;
+    color: #262626;
+    text-align: center;
+}
+
+.skill-image {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.skill-image img {
+    width: 260px;
+    height: 182px;
+}
+
+/* About 링크 호버 효과 */
+.about-link:hover {
+    color: #1f2a12;
+    cursor: pointer;
+}

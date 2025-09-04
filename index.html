@@ -40,6 +40,7 @@
         </div>
         <span class="line"></span>
     </section>
+    <!-- 메뉴 섹션 -->
     <section class="sec menu" aria-hidden="true">
         <div class="menu-inner">
             <div class="left-box">
@@ -51,10 +52,10 @@
             <div class="right-box">
                 <div class="right-top">
                     <ul class="contactul">
-                        <li>
+                        <!-- <li>
                             <strong>instagram</strong>
                             <br>@seo
-                        </li>
+                        </li> -->
                         <li>
                             <strong>contact</strong>
                             <br>66noey@gmail.com
@@ -62,13 +63,83 @@
                     </ul>
                 </div>
                 <div class="right-links">
-                    <a href="#" class="menu-link">ABout NOey</a>
+                    <a href="#" class="menu-link about-link">ABout NOey</a>
                     <a href="#" class="menu-link">Projects</a>
                     <a href="#" class="menu-link">Work</a>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- About 섹션 -->
+    <section class="sec about" id="about" aria-hidden="true">
+      <div class="about-inner">
+        <div class="about-left">
+          <h2 class="about-title">
+            <span class="title-main">About</span>
+            <div class="title-sub">
+              <span>Me</span>
+              <div class="title-line"></div>
+            </div>
+          </h2>
+          <div class="profile-container">
+            <img class="profile-image" src="./img/profile.jpg" alt="Jang Seo Yeon" />
+            <div class="name-overlay">
+              <span class="name-jang">Jang</span>
+              <span class="name-seo">sEo</span>
+              <span class="name-yeon">ye0n</span>
+            </div>
+          </div>
+        </div>
+        <div class="about-right">
+          <div class="top-banner">
+            <p class="banner-text">
+              <span class="data-text">DATA</span>
+              <span class="banner-desc">가 말하는 방향으로,<br /></span>
+              <span class="banner-main">'분석하는 디자이너'</span>
+            </p>
+          </div>
+          <div class="info-grid">
+            <div class="info-block education">
+              <h3>Education</h3>
+              <div class="info-content">
+                <div class="info-group">
+                    <p>산업디자인과</p>
+                    <p>호서대학교</p>
+                    <p>2016.03 ~ 2020.08</p>
+                </div>
+                <div class="info-group">
+                    <p>seSAC</p>
+                    <p>청년취업사관학교 서대문캠퍼스</p>
+                    <p>2025.06 ~ 09</p>
+                </div>
+              </div>
+            </div>
+            <div class="info-block work">
+              <h3>Work</h3>
+              <div class="info-content">
+                <p>디엠씨미디어</p>
+                <p>퍼포먼스 마케팅팀 신성통상 담당</p>
+                <p>2022.08 ~ 2025.06</p>
+              </div>
+            </div>
+            <div class="info-block skills">
+              <h3>Skill</h3>
+              <div class="skill-image">
+                <img src="./img/skill.png" alt="Skills" />
+              </div>
+            </div>
+            <div class="info-block hashtags">
+              <div class="hashtag"># UI/UX</div>
+              <div class="hashtag"># Design</div>
+              <div class="hashtag"># Marketing</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
     <script>
     (function(){
         var logoImg = document.querySelector('.navul .logo .menubox > img:not(.menuling)');
@@ -109,6 +180,58 @@
         logoImg.addEventListener('click', function(e){
             e.preventDefault();
             toggleMenu();
+        });
+
+        // About 섹션 관련 기능
+        var aboutLink = document.querySelector('.about-link');
+        var aboutSection = document.querySelector('.sec.about');
+        var isAboutOpen = false;
+
+        function openAbout() {
+            aboutSection.classList.add('about-open');
+            document.body.classList.add('about-open');
+            aboutSection.setAttribute('aria-hidden', 'false');
+            isAboutOpen = true;
+        }
+
+        function closeAbout() {
+            aboutSection.classList.remove('about-open');
+            document.body.classList.remove('about-open');
+            aboutSection.setAttribute('aria-hidden', 'true');
+            isAboutOpen = false;
+        }
+
+        function toggleAbout() {
+            if (isAboutOpen) {
+                closeAbout();
+            } else {
+                openAbout();
+            }
+        }
+
+        // About 링크 클릭 시 About 섹션 열기
+        aboutLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            // 메뉴가 열려있다면 먼저 닫기
+            if (document.body.classList.contains('menu-open')) {
+                closeMenu();
+            }
+            // About 섹션 열기
+            openAbout();
+        });
+
+        // ESC 키로 About 섹션 닫기
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && isAboutOpen) {
+                closeAbout();
+            }
+        });
+
+        // About 섹션 외부 클릭 시 닫기
+        aboutSection.addEventListener('click', function(e) {
+            if (e.target === aboutSection) {
+                closeAbout();
+            }
         });
     })();
     </script>
