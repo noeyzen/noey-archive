@@ -447,7 +447,7 @@ body.menu-open header {
     bottom: 120px !important;
     right: 30px !important;
     font-family: 'PartialSans', Arial, sans-serif !important;
-    font-size: 103px !important;
+    font-size: 40px !important;
     font-weight: 400 !important;
     color: #f6ff58 !important;
     -webkit-text-stroke: 3px #000000 !important;
@@ -460,7 +460,7 @@ body.menu-open header {
     bottom: 60px !important;
     right: 30px !important;
     font-family: 'PartialSans', Arial, sans-serif !important;
-    font-size: 103px !important;
+    font-size: 40px !important;
     font-weight: 400 !important;
     color: #f6ff58 !important;
     -webkit-text-stroke: 3px #000000 !important;
@@ -473,7 +473,7 @@ body.menu-open header {
     bottom: 0 !important;
     right: 30px !important;
     font-family: 'PartialSans', Arial, sans-serif !important;
-    font-size: 103px !important;
+    font-size: 40px !important;
     font-weight: 400 !important;
     color: #f6ff58 !important;
     -webkit-text-stroke: 3px #000000 !important;
@@ -524,18 +524,19 @@ body.menu-open header {
 .info-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
     gap: 34px;
-    outline: 1px solid blue;
     height: calc(100% - 225px);
+    align-items: start; /* 블록들이 위쪽부터 정렬되도록 */
 }
 
 .info-block {
+    height: auto; /* 콘텐츠 높이만큼 자동 조정 */
+    min-height: fit-content; /* 최소 높이는 콘텐츠에 맞춤 */
     border-radius: 30px;
     padding: 24px;
     display: flex;
     flex-direction: column;
-    gap: 32px;
+    gap: 12px;
 }
 
 .info-block h3 {
@@ -543,14 +544,13 @@ body.menu-open header {
     font-size: 32px;
     font-weight: 400;
     color: #262626;
-    margin: 0;
     text-align: left;
 }
 
 .info-content {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    /* gap: 24px; */
 }
 
 .info-group {
@@ -601,13 +601,12 @@ body.menu-open header {
 
 .skill-image {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: flex-start;
 }
 
 .skill-image img {
-    width: 260px;
-    height: 182px;
+    width: 140px;
 }
 
 /* About 링크 호버 효과 */
