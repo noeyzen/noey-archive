@@ -493,7 +493,7 @@ body.menu-open header {
     border-radius: 30px;
     padding: 32px;
     text-align: center;
-    height: 195px;
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -501,7 +501,7 @@ body.menu-open header {
 
 .banner-text {
     font-family: 'Suit';
-    font-size: 45px;
+    font-size: 24px;
     line-height: normal;
 }
 
@@ -517,7 +517,8 @@ body.menu-open header {
 
 .banner-main {
     color: #262626;
-    font-size: 60px;
+    font-size: 40px;
+    font-weight: 600;
 }
 
 .info-grid {
@@ -525,6 +526,7 @@ body.menu-open header {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     gap: 34px;
+    outline: 1px solid blue;
     height: calc(100% - 225px);
 }
 
@@ -559,7 +561,7 @@ body.menu-open header {
 
 .info-content p {
     font-family: 'Suit';
-    font-size: 22px;
+    font-size: 18px;
     font-weight: 300;
     color: #262626;
     margin: 0;
@@ -567,8 +569,8 @@ body.menu-open header {
 }
 
 .info-content p:first-child {
-    font-size: 32px;
-    font-weight: 400;
+    font-size: 24px;
+    font-weight: 600;
 }
 
 .education {
